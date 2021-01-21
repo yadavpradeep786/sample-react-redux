@@ -47,9 +47,9 @@ const Home = () => {
   }, [providers, selectedService]);
 
   return (
-    <div>
+    <>
       {loading || !services || !providers ? (
-				<Grid container justify="center">
+				<Grid container justify="center" alignItems="center" style={{height: '100%'}}>
 					<CircularProgress />
 				</Grid>
       ) : (
@@ -70,7 +70,7 @@ const Home = () => {
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

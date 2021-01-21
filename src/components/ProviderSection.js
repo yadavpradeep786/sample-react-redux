@@ -16,14 +16,20 @@ import { TablePaginationActions } from "./Pagination";
 
 const useStyles2 = makeStyles({
   header: {
-    "font-weight": "bold",
-    color: "#fff",
-    "background-color": "#000",
+    fontWeight: 'bold',
+    color: '#fff',
+    backgroundColor: '#000',
+  },
+  profileImg: {
+    height: '120px',
+    width: '120px',
+    display: 'flex',
+    borderRadius: '50%',
+    overflow: 'hidden'
   },
   img: {
-    height: "120px",
-    width: "90px",
-  },
+    width: '100%'
+  }
 });
 
 const ProviderSection = (props) => {
@@ -60,19 +66,21 @@ const ProviderSection = (props) => {
           ).map((row, index) => (
             <TableRow key={index}>
               <TableCell>
-                {row.attributes["profile-image"] ? (
-                  <img
-                    className={classes.img}
-                    src={row.attributes["profile-image"]}
-                    alt="new"
-                  />
-                ) : (
-                  <img
-                    className={classes.img}
-                    src="/user-profile-default.png"
-                    alt="new"
-                  />
-                )}
+                <div className={classes.profileImg}>
+                  {row.attributes["profile-image"] ? (
+                    <img
+                      className={classes.img}
+                      src={row.attributes["profile-image"]}
+                      alt="new"
+                    />
+                  ) : (
+                    <img
+                      className={classes.img}
+                      src="/user-profile-default.png"
+                      alt="new"
+                    />
+                  )}
+                </div>
               </TableCell>
               <TableCell>
                 <b>Name:</b> {row.attributes.name}<br></br>
